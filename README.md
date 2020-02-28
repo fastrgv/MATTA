@@ -41,10 +41,15 @@ Note that the precompiled executables use suffixes that indicates the system:
 A clean morse code sound file contains tonal beeps separated by periods of silence.  After normalization, the sound wave peak amplitude is one, while the periods of silence have near zero peaks.  The simple approach used here seeks to detect those changes in peak amplitude that signal dots, dashes, and spaces.
 
 The (ideal) international morse code relative timings are defined as:
+
 .) length of a dot = 1
+
 .) length of a dash = 3
+
 .) space after dot or dash = 1
+
 .) space after a letter = 3
+
 .) space after a word = 7
 
 MATTA is not perfect, but computer-generated sound files can be reliably decoded.
