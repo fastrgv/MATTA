@@ -28,8 +28,11 @@ The user command requires the WAV file name, and integer-WPM estimate as input:
 English text is then printed out to the screen.
 
 Note that the precompiled executables use suffixes that indicates the system:
+
 .) _osx (MacOSX)
+
 .) _gnu (linux)
+
 .) .exe (MsWin)
 
 ========================================================
