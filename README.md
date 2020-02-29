@@ -35,8 +35,11 @@ The user command requires the WAV file name, and integer-WPM estimate as input:
 English text is then printed out to the screen.
 
 Note that the precompiled executables use suffixes that indicates the system:
+
 .) _osx (MacOSX)
+
 .) _gnu (linux)
+
 .) .exe (MsWin)
 
 --------------------------------------------------------------------------
@@ -47,12 +50,15 @@ The new inverse app takes a commandline string, which must be quoted to include 
 and creates an output WAV file, named "new20wpm.wav", with the morse code equivalent.  This output file can be renamed and manipulated using sox.
 
 To slow it down try:
+
 	sox new20wpm.wav new10wpm.wav speed 0.5
 
 This lowers the tone (from 500 to 250 Hz) so to restore the tone try:
+
 	sox new10wpm.wav hi10wpm.wav pitch +250
 
 Too loud?  Try
+
 	sox -v 0.8 hi10wpm.wav quiet10wpm.wav
 
 ========================================================
@@ -61,10 +67,15 @@ Too loud?  Try
 A clean morse code sound file contains tonal beeps separated by periods of silence.  After normalization, the sound wave peak amplitude is one, while the periods of silence have near zero peaks.  The simple approach used here seeks to detect those changes in peak amplitude that signal dots, dashes, and spaces.
 
 The (ideal) international morse code relative timings are defined as:
+
 .) length of a dot = 1
+
 .) length of a dash = 3
+
 .) space after dot or dash = 1
+
 .) space after a letter = 3
+
 .) space after a word = 7
 
 wav2txt is not perfect, but computer-generated sound files can be reliably decoded.
