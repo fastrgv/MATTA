@@ -63,7 +63,7 @@ Too loud?  Try
 
 	sox -v 0.8 hi10wpm.wav quiet10wpm.wav
 	
-Note that txt2wav is a cheap & dirty tool to create minimal test input files for wav2txt.  The WAV headers might be illegal since they are blatantly copied from an existing WAV file.  Nevertheless, "soxi" seems to accept them.
+Note that txt2wav is a cheap & dirty tool to create minimal test input files for wav2txt.  The WAV headers might be illegal since they are blatantly copied from an existing WAV file.  Nevertheless, "sox" and "soxi" seem to accept them.  And if you are going to manipulate them with sox, the output of sox is probably legal.
 
 ========================================================
 ## How wav2txt Works:
