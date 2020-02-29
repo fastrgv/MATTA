@@ -62,6 +62,8 @@ This lowers the tone (from 500 to 250 Hz) so to restore the tone try:
 Too loud?  Try
 
 	sox -v 0.8 hi10wpm.wav quiet10wpm.wav
+	
+Note that txt2wav is a cheap & dirty tool to create minimal test input files for wav2txt.  The WAV headers might be illegal since they are blatantly copied from an existing WAV file.  Nevertheless, "soxi" seems to accept them.
 
 ========================================================
 ## How wav2txt Works:
