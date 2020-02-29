@@ -14,7 +14,7 @@ https://github.com/fastrgv/MATTA/releases/download/v1.0.0/mat27feb20.7z
 
 ## Description
 
-This is a commandline utility that converts a WAV sound file containing morse code to English text.  Pre-built binaries run on OSX, MsWindows, & GNU/linux.  It is written in Ada, so can be rebuilt on any platform with an Ada compiler.
+This is a commandline utility that converts a WAV sound file containing morse code to English text.  There are pre-built binaries for OSX, MsWindows, & GNU/linux.  It is written in Ada, so can be rebuilt on any platform with an Ada compiler.
 
 The input wav file must be monaural, with a 16-bit signed integer encoding, and a sample rate of 8000 Hz.  Either sox or audacity can easily transform to this format.  The wav file is expected to be international morse code, preferrably clean and properly spaced.  Tonal frequency or wpm-speed does not seem to matter.
 
