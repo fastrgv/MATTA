@@ -4,7 +4,7 @@ Morse Audio to Text Translator using Ada
 
 This link contains all source, data, & pre-built executables:
 
-https://github.com/fastrgv/MATTA/releases/download/v1.0.0/mat27feb20.7z
+https://github.com/fastrgv/MATTA/releases/download/v1.0.1/mat29feb20.7z
 
 
 
@@ -13,7 +13,8 @@ https://github.com/fastrgv/MATTA/releases/download/v1.0.0/mat27feb20.7z
 
 
 **ver 1.0.1 -- 29feb2020**
-
+* Added txt2wav
+* Improved coding
 * Initial version.
 
 ## Description
