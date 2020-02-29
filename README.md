@@ -1,3 +1,5 @@
+![screenshot](https://github.com/fastrgv/MATTA/blob/master/cq.png)
+
 # MATTA
 Morse Audio to Text Translator using Ada
 
