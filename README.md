@@ -55,7 +55,7 @@ To slow it down try:
 
 	sox new20wpm.wav new10wpm.wav speed 0.5
 
-This lowers the tone (from 500 to 250 Hz) so to restore the tone try:
+This also lowers the tone (from 500 to 250 Hz) so to restore the tone try:
 
 	sox new10wpm.wav hi10wpm.wav pitch +250
 
