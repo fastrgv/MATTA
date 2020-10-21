@@ -45,8 +45,10 @@ Note that the precompiled executables use suffixes that indicates the system:
 .) .exe (MsWin)
 
 For example, let's say you use a Mac and have a friend with a Windows computer.
-	txt2wav_osx	creates a WAV file from given text on OSX;
-	wav2txt.exe	deciphers the WAV file on Windows.
+
+	* txt2wav_osx	creates a WAV file from given text on OSX;
+	
+	* wav2txt.exe	deciphers the WAV file on Windows.
 
 --------------------------------------------------------------------------
 The new inverse app takes a commandline string, which must be quoted to include spaces thusly:
