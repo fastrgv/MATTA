@@ -27,6 +27,8 @@ The input wav file must be monaural, with a 16-bit signed integer encoding, and 
 
 Now includes an inverse commandline app, txt2wav that creates a morse code WAV file from English text.
 
+The proper command to extract the archive and maintain the directory structure is "7z x filename".
+
 --------------------------------------------------------
 ## Usage Examples
 
