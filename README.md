@@ -8,6 +8,9 @@ This link contains all source, data, & pre-built executables:
 
 https://github.com/fastrgv/MATTA/releases/download/v1.0.1/mat29feb20.7z
 
+Type "7z x filename" to extract the archive.
+
+
 
 
 
