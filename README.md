@@ -15,10 +15,16 @@ Type "7z x filename" to extract the archive.
 
 
 
+
 # Morse Audio to Text Translator Using Ada: MATTA
 
 
-**ver 1.0.2 -- 03aug2021**
+**ver 1.0.3 -- 05aug2021**
+
+* Improved txt2wav with optional WPM parm;
+* Improved wav2txt to better analyze input WAV files in absence of WPM parm.
+
+**ver 1.0.1 -- 03aug2021**
 
 * The commandline parameter estimated WPM may now be [optionally] omitted if the morse code message is long enough to get meaningful timing statistics.
 
@@ -35,9 +41,9 @@ Type "7z x filename" to extract the archive.
 
 This is a commandline utility that converts a WAV sound file containing morse code to English text.  Pre-built binaries run on OSX, MsWindows, & GNU/linux.  It is written in Ada, so can be rebuilt on any platform with an Ada compiler.
 
-The input wav file must be monaural, with a 16-bit signed integer encoding, and a sample rate of 8000 Hz.  Either sox or audacity can easily transform to this format.  The wav file is expected to be international morse code, preferrably clean and properly spaced.  Tonal frequency or wpm-speed does not seem to matter.
+The input wav file must be monaural, with a 16-bit signed integer encoding, and a sample rate of 8000 Hz.  Either sox or audacity can easily transform a WAV file to this format.  The wav file is expected to be international morse code, preferrably clean and properly spaced.  Tonal frequency or wpm-speed does not seem to matter.
 
-Now includes an inverse commandline app, txt2wav that creates a morse code WAV file from English text.
+Includes an inverse commandline app, txt2wav that creates a morse code WAV file from English text.
 
 --------------------------------------------------------
 ## Usage Examples
@@ -52,7 +58,7 @@ English text is then printed out to the screen.
 
 	EG. wav2txt 40wpmAZ.wav
 
-### Addendum2: it is very cheap to try various WPM-estimates. Most messages are between 10 and 40 wpm.
+### Addendum2: for unknown messages, simply try various WPM-estimates. Most messages are between 10 and 40 wpm.
 
 ### Addendum3: the Windows executable will work on your linux box if wine is installed.
 
@@ -63,16 +69,16 @@ Note that the precompiled executables use suffixes that indicates the system:
 
 For example, let's say you use a Mac and have a friend with a Windows computer.
 
-	* txt2wav_osx 	creates a WAV file from text on OSX.
+	* txt2wav_osx "stop radioactivity"	creates a WAV file from text on OSX (20wpm.wav)
 
-	* wav2txt.exe 	deciphers the WAV file on Windows.
+	* txt2wav_osx 30 "stop radioactivity" creates a WAV file from text on OSX (30wpm.wav)
+
+Then your friend can decipher it with the command:
+
+	* wav2txt.exe 20wpm.wav deciphers the WAV file on Windows.
 
 --------------------------------------------------------------------------
-The new inverse app takes a commandline string, which must be quoted to include spaces thusly:
-
-	txt2wav "the quick brown fox"
-
-and creates an output WAV file, named "new20wpm.wav", with the morse code equivalent.  This output file can be renamed and manipulated using "sox", as follows.
+The inverse app txt2wav takes a commandline string, which must be quoted to include spaces, optionally followed by an integer from the set {10,15,20,25,30,35,40}, and creates an output WAV file, named "xxwpm.wav", with the morse code equivalent.  This output file can be renamed and manipulated using "sox", as follows.
 
 To slow it down try:
 	sox new20wpm.wav new10wpm.wav speed 0.5
@@ -101,9 +107,7 @@ See also the inline code comments.
 
 Final note:  many good apps can easily be found to generate morse code sound files from text.  One simple one is included (txt2wav) merely for the sake of completeness.
 
-## Unresolved Question:
 
-Can the requirement of an estimated WPM be dropped, somehow?
 
 
 --------------------------
@@ -125,4 +129,5 @@ Covered by the GNU GPL v3 as indicated in the sources:
 
  You may read the full text of the GNU General Public License
  at <http://www.gnu.org/licenses/>.
+
 
