@@ -111,6 +111,20 @@ Final note:  many good apps can easily be found to generate morse code sound fil
 
 
 
+## useful preparatory sox commands:
+
+sox 20wpm8bit.wav -b 16 20wpm16bit.wav 
+(convert from 8 bits to 16 bits)
+
+sox 24bit44k.wav -b 16 16bit8k.wav channels 1 rate 8k
+(convert from stereo 44.1k to mono 8k...as needed by wav2txt)
+
+sox -v 1.5 quiet.wav louder.wav
+(the WAV file needs to be loud enough for wav2txt to hear it!)
+
+
+
+
 --------------------------
 ## License:
 
