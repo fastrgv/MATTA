@@ -113,6 +113,8 @@ Final note:  many good apps can easily be found to generate morse code sound fil
 
 ## useful preparatory sox commands:
 
+sox file.wav (gives properties of wav file)
+
 sox 20wpm8bit.wav -b 16 20wpm16bit.wav 
 (convert from 8 bits to 16 bits)
 
