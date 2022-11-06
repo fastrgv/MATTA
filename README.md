@@ -94,7 +94,7 @@ Note that "txt2wav" assumes the ./data/ directory is present, so it only works f
 
 For example, let's say you use a Mac and have a friend with a Windows computer.
 
-	* txt2wav_osx 20 "stop radioactivity"	
+	* txt2wav_osx "stop radioactivity" 20
 
 creates a WAV file from text on OSX (20wpm.wav)
 
