@@ -6,7 +6,7 @@ Morse Audio to Text Translator using Ada
 
 This link contains all source, data, & pre-built executables:
 
-https://github.com/fastrgv/MATTA/releases/download/v1.0.3/mor5aug21.7z
+https://github.com/fastrgv/MATTA/releases/download/v1.0.4/mo7nov22.7z
 
 Type "7z x filename" to extract the archive.
 
