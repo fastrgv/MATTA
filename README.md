@@ -67,6 +67,14 @@ Note that the precompiled executables use suffixes that indicates the system:
 .) _gnu (linux)
 .) .exe (MsWin)
 
+In order to use the inverse function "txt2wav" you must copy the file
+~/maintestFiles/sos_20wpm.wav into your current directory. It is needed
+only to help create the proper header for a WAV file. Then simply type
+
+	* txt2wav "message within quotes"
+
+to create a file named "20wpm.wav", which can then be used as input for wav2txt.
+
 For example, let's say you use a Mac and have a friend with a Windows computer.
 
 	* txt2wav_osx "stop radioactivity"	creates a WAV file from text on OSX (20wpm.wav)
