@@ -17,8 +17,15 @@ Type "7z x filename" to extract the archive.
 
 
 
+
 # Morse Audio to Text Translator Using Ada: MATTA
 
+
+**ver 1.0.4 -- 07nov2022**
+
+* Updated to use GNU Ada rather than defunct AdaCore.
+* Simplified the directory structure for easier understanding.
+* Updated documentation.
 
 **ver 1.0.3 -- 05aug2021**
 
@@ -41,7 +48,15 @@ Type "7z x filename" to extract the archive.
 
 This is a commandline utility that converts a WAV sound file containing morse code to English text.  Pre-built binaries run on OSX, MsWindows, & GNU/linux.  It is written in Ada, so can be rebuilt on any platform with an Ada compiler.
 
-The input wav file must be monaural, with a 16-bit signed integer encoding, and a sample rate of 8000 Hz.  Either sox or audacity can easily transform a WAV file to this format.  The wav file is expected to be international morse code, preferrably clean and properly spaced.  Tonal frequency or wpm-speed does not seem to matter.
+Open a commandline terminal and type "7z x (filename).7z" to extract the archive and preserve the directory structure. Then cd to the "base" directory named "morse". There are 2 executables for each system, windows, OSX, linux in the morse directory:
+
+	* wav2txt_osx, txt2wav_osx (Mac/OSX)
+	* wav2txt.exe, txt2wav.exe (Windows)
+	* wav2txt_gnu, txt2wav_gnu (Linux)
+
+The input wav file should be monaural, with a 16-bit signed integer encoding, and a sample rate of 8000 Hz. (decoding factors depend on these assumptions.)
+
+Either sox or audacity can easily transform a WAV file to this format.  The wav file is expected to be international morse code, preferrably clean and properly spaced.  Tonal frequency or wpm-speed does not seem to matter, but volume is important.
 
 Includes an inverse commandline app, txt2wav that creates a morse code WAV file from English text.
 
@@ -50,43 +65,48 @@ Includes an inverse commandline app, txt2wav that creates a morse code WAV file 
 
 The user command requires the WAV file name, and integer-WPM estimate as input:
 
-	wav2txt 40wpmAZ.wav 40
+	wav2txt testFiles/15wpm.wav 15
 
 English text is then printed out to the screen.
 
 ### Addendum1: WPM-estimate-parameter may now be optionally omitted IF the message is long enough to analyze.
 
-	EG. wav2txt 40wpmAZ.wav
+	EG. wav2txt testFiles/15wpm.wav
 
 ### Addendum2: for unknown messages, simply try various WPM-estimates. Most messages are between 10 and 40 wpm.
 
-### Addendum3: the Windows executable will work on your linux box if wine is installed.
+### Addendum3: the Windows executable will work on linux if wine is installed.
 
 Note that the precompiled executables use suffixes that indicates the system:
-.) _osx (MacOSX)
-.) _gnu (linux)
-.) .exe (MsWin)
 
-In order to use the inverse function "txt2wav" you must copy the file
-~/maintestFiles/sos_20wpm.wav into your current directory. It is needed
-only to help create the proper header for a WAV file. Then simply type
+* _osx (MacOSX)
+* _gnu (linux)
+* .exe (MsWin)
+
+The inverse function "txt2wav" is even simpler to use...simply type:
 
 	* txt2wav "message within quotes"
 
-to create a file named "20wpm.wav", which can then be used as input for wav2txt.
+to create a file named "20wpm.wav", which can then be renamed & used as input for wav2txt.
+
+Note that "txt2wav" assumes the ./data/ directory is present, so it only works from the root directory, i.e. ~/morse/.  The other executable "wav2txt" does NOT have this restriction. In other words, it may be moved to any convenient directory and it will still work.
+
 
 For example, let's say you use a Mac and have a friend with a Windows computer.
 
-	* txt2wav_osx "stop radioactivity"	creates a WAV file from text on OSX (20wpm.wav)
+	* txt2wav_osx 20 "stop radioactivity"	
 
-	* txt2wav_osx 30 "stop radioactivity" creates a WAV file from text on OSX (30wpm.wav)
+creates a WAV file from text on OSX (20wpm.wav)
+
 
 Then your friend can decipher it with the command:
 
-	* wav2txt.exe 20wpm.wav deciphers the WAV file on Windows.
+	* wav2txt.exe 20wpm.wav 
+
+deciphers the WAV file on Windows.
 
 --------------------------------------------------------------------------
-The inverse app txt2wav takes a commandline string, which must be quoted to include spaces, optionally followed by an integer from the set {10,15,20,25,30,35,40}, and creates an output WAV file, named "xxwpm.wav", with the morse code equivalent.  This output file can be renamed and manipulated using "sox", as follows.
+The inverse function txt2wav takes a commandline string, **which must be quoted** to include spaces, optionally followed by an integer from the set {10,15,20,25,30,35,40}, and creates an output WAV file, named "xxwpm.wav", with the morse code equivalent.  This output file can be renamed and manipulated using "sox", as follows.
 
 To slow it down try:
 	sox new20wpm.wav new10wpm.wav speed 0.5
@@ -117,8 +137,6 @@ See also the inline code comments.
 Final note:  many good apps can easily be found to generate morse code sound files from text.  One simple one is included (txt2wav) merely for the sake of completeness.
 
 
-
-
 ## Useful preparatory sox commands:
 
 soxi file.wav (gives properties of wav file)
@@ -127,21 +145,40 @@ sox 20wpm8bit.wav -b 16 20wpm16bit.wav
 (convert from 8 bits to 16 bits)
 
 sox 24bit44k.wav -b 16 16bit8k.wav channels 1 rate 8k
-(convert from stereo 44.1k to mono 8k...as needed by wav2txt)
+(convert from stereo 44.1k to mono 8k)
 
 sox -v 1.5 quiet.wav louder.wav
 (the beeps in the WAV file need to be loud enough [near maximal volume] for wav2txt to "hear" it!)
 
+===================================================================
+Open source Ada developers are welcome to help improve or extend this app.
+Developer or not, send comments, suggestions or questions to:
+fastrgv@gmail.com
 
 
+## Build Instructions (for developers who wish to modify my code)
 
+Prebuilt executables for 3 platforms are delivered. But if you want or need
+to rebuild, you must first install GNU Ada. 
+
+I suggest going to the following website to find an appropriate version of gnat:
+
+	https://github.com/alire-project/GNAT-FSF-builds/releases
+
+Then proceed to the ~/build/ subdirectory and modify one of the scripts below to match your system and GNU Ada installation directory:
+
+	* lcmp.sh (linux)
+	* ocmp.sh (OSX)
+	* w64cmp.bat (Windows)
+
+Make sure your script is executable, then simply type its name to rebuild.
 
 --------------------------
 ## License:
 
 Covered by the GNU GPL v3 as indicated in the sources:
 
- Copyright (C) 2021  <fastrgv@gmail.com>
+ Copyright (C) 2022  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
