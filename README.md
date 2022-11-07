@@ -89,7 +89,7 @@ The inverse function "txt2wav" is even simpler to use...simply type:
 
 to create a file named "20wpm.wav", which can then be renamed & used as input for wav2txt.
 
-Note that "txt2wav" assumes the ./data/ directory is present, so it only works from the root directory, i.e. ~/morse/.  The other executable "wav2txt" does NOT have this restriction. In other words, it may be moved to any convenient directory and it will still work.
+Note that "txt2wav" & "wav2txt" may be moved to any convenient directory and will still work.
 
 
 For example, let's say you use a Mac and have a friend with a Windows computer.
