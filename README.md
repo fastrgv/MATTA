@@ -59,6 +59,22 @@ Either sox or audacity can easily transform a WAV file to this format.  The wav 
 
 Includes an inverse commandline app, txt2wav that creates a morse code WAV file from English text.
 
+
+------------------------------------------------------------------------
+## Preparation Example
+
+If you have the "sox" command available, then CD to ~/testFiles/badFiles/ and try
+
+	soxi 24bit48kStereo.wav
+
+will display the properties of the WAV file. And
+
+	sox 24bit48kStereo.wav -b 16 niceMsg.wav channels 1 rate 8k
+
+will convert to the acceptible format.
+
+
+
 --------------------------------------------------------
 ## Usage Examples
 
