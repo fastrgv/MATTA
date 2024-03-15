@@ -63,13 +63,9 @@ Includes an inverse commandline app, txt2wav that creates a morse code WAV file 
 ------------------------------------------------------------------------
 ## Preparation Example
 
-If you have the "sox" command available, then CD to ~/testFiles/badFiles/ and try
+If you have the "sox" command available, then 
 
-	soxi 24bit48kStereo.wav
-
-will display the properties of the WAV file. And
-
-	sox 24bit48kStereo.wav -b 16 niceMsg.wav channels 1 rate 8k
+	sox anyfile.wav -b 16 readable.wav channels 1 rate 8k
 
 will convert to the acceptible format.
 
