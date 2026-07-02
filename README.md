@@ -68,7 +68,11 @@ If you have the "sox" command available, then
 	sox anyfile.wav -b 16 readable.wav channels 1 rate 8k
 
 will convert to the acceptible format.
+Also, you might need to make the sound louder thusly
 
+	sox -v 2.0 anyfile.wav 2x_anyfile.wav
+
+will double the volume.
 
 
 --------------------------------------------------------
